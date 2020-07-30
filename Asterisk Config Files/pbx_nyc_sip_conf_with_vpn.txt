@@ -1,0 +1,115 @@
+;====will need to rename to "sip.conf" and place in /etc/asterisk
+
+[general]
+context=public
+bind=0.0.0.0
+transport=udp
+rtp_engine=asterisk
+localnet=10.1.10.0/24
+localnet=192.168.1.0/24
+externaddr=199.185.13.1:5060
+nat=auto_force_rport,auto_comedia
+directmedia=nonat
+
+[InterOfc_NYC_CHI]
+host=199.185.13.50
+type=peer
+deny=0.0.0.0/0.0.0.0
+permit=199.185.13.50/255.255.255.255
+qualify=yes
+qualifyfreq=5
+keepalive=5
+rtpkeepalive=5
+disallow=all
+allow=ulaw,alaw
+trustrpid=yes
+sendrpid=yes
+insecure=port,invite
+dtmfmode=rfc2833
+context=from-trunk
+canreinvite=no
+
+[2270]
+deny=0.0.0.0/0.0.0.0
+secret=f2e72f8eecd11e83wfde3ef5420a69e2e
+dtmfmode=rfc2833
+canreinvite=no
+context=from-internal
+host=dynamic
+trustrpid=yes
+sendrpid=no
+type=friend
+nat=no
+port=5060
+qualify=yes
+qualifyfreq=60
+avpf=no
+force_avp=no
+icesupport=no
+encryption=no
+dial=SIP/2270
+permit=0.0.0.0/0.0.0.0
+callerid=Bob <2270>
+callcounter=yes
+faxdetect=no
+ubuntu@pbx_nyc:/etc/asterisk$ ls
+README               indications.conf   queues.conf
+asterisk.conf        logger.conf        rtp.conf
+cdr.conf             modules.conf       sip.conf
+cdr_custom.conf      musiconhold.conf   sip.conf.BAK_no_encrypt
+confbridge.conf      pjsip.conf.BAK     sip.conf.BAK_with_vpn
+extensions.conf      pjsip.conf.BAK2    voicemail.conf
+extensions.conf.BAK  pjsip_notify.conf
+ubuntu@pbx_nyc:/etc/asterisk$ cat sip.conf.BAK_with_vpn
+[general]
+context=public
+bind=0.0.0.0
+transport=udp
+rtp_engine=asterisk
+localnet=10.1.10.0/24
+localnet=192.168.1.0/24
+externaddr=199.185.13.1:5060
+nat=auto_force_rport,auto_comedia
+directmedia=nonat
+
+[InterOfc_NYC_CHI]
+host=192.168.1.10
+type=peer
+deny=0.0.0.0/0.0.0.0
+permit=192.168.1.10/255.255.255.255
+qualify=yes
+qualifyfreq=5
+keepalive=5
+rtpkeepalive=5
+disallow=all
+allow=ulaw,alaw
+trustrpid=yes
+sendrpid=yes
+insecure=port,invite
+dtmfmode=rfc2833
+context=from-trunk
+canreinvite=no
+
+[2270]
+deny=0.0.0.0/0.0.0.0
+secret=f2e72f8eecd11e83wfde3ef5420a69e2e
+dtmfmode=rfc2833
+canreinvite=no
+context=from-internal
+host=dynamic
+trustrpid=yes
+sendrpid=no
+type=friend
+nat=no
+port=5060
+qualify=yes
+qualifyfreq=60
+avpf=no
+force_avp=no
+icesupport=no
+encryption=no
+dial=SIP/2270
+permit=0.0.0.0/0.0.0.0
+callerid=Bob <2270>
+callcounter=yes
+faxdetect=no

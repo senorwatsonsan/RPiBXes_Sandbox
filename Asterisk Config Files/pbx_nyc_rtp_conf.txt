@@ -1,0 +1,9 @@
+;====will need to rename to "rtp.conf" and place in /etc/asterisk
+
+[general]
+strictrtp=no
+stunaddr=199.185.13.100
+
+rtpstart=10000
+rtpend=13999
+

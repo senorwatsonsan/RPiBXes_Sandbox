@@ -1,0 +1,24 @@
+Useful Walkthroughs	
+	Asterisk
+		Ubuntu Images for Raspberry Pi (I used 18.04)
+			https://ubuntu.com/download/raspberry-pi
+		Downloading and compling Asterisk from source on RPi
+			https://linuxize.com/post/how-to-install-asterisk-on-ubuntu-18-04/
+				Note: had to change one command for current version:
+					sudo wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-15-current.tar.gz
+					to
+					sudo wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
+		Basic configs 
+			https://wiki.asterisk.org/wiki/display/AST/Basic+PBX+Functionality
+	Ubuntu:
+		Updating Hostname
+			https://linuxize.com/post/how-to-change-hostname-on-ubuntu-18-04/
+		Setting Ubuntu Server 18.04 to a static IP, which now requires editing a .yaml file.
+			https://www.techrepublic.com/article/how-to-configure-a-static-ip-address-in-ubuntu-server-18-04/
+		Running a STUN server
+			http://manpages.ubuntu.com/manpages/precise/man8/stund.8.html
+	pfSense
+		Easy IP Sec Tunnel Walkthrough
+			https://docs.netgate.com/pfsense/en/latest/vpn/ipsec/configuring-a-site-to-site-ipsec-vpn.html
+	Yealinks
+		Just login to the web GUI and add your account.  Very straightforward. 

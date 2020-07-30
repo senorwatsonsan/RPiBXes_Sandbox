@@ -1,0 +1,17 @@
+;====will need to rename to "extensions.conf" and place in /etc/asterisk
+
+[general]
+
+[globals]
+
+[from-trunk]
+exten=>_23XX,1,Dial(SIP/${EXTEN})
+
+[from-internal]
+exten=>2350,1,Dial(SIP/2350,30)
+exten=>2351,1,Dial(SIP/2351,30)
+
+exten=>*999,1,Playback(hello-world)
+ same=>n,Hangup()
+
+exten=>_22XX,1,Dial(SIP/InterOfc_NYC_CHI/${EXTEN})
